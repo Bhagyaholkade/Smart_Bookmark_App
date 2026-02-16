@@ -79,23 +79,23 @@ function LandingPage() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full glass-light mb-10"
+              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full glass-light mb-12"
             >
               <div className="pulse-dot" />
-              <span className="text-xs font-semibold text-white/50 tracking-wider uppercase">Real-time Bookmark Manager</span>
+              <span className="text-xs font-bold text-white/60 tracking-widest uppercase">Real-time Bookmark Manager</span>
             </motion.div>
 
-            <h1 className="font-display text-8xl sm:text-9xl md:text-[10rem] lg:text-[12rem] xl:text-[14rem] font-normal leading-[0.8] tracking-wider mb-10 select-none drop-shadow-2xl">
-              <span className="block text-gradient-white">SAVE</span>
-              <span className="block text-stroke opacity-80">ORGANIZE</span>
-              <span className="block text-gradient-purple">SYNC</span>
+            <h1 className="font-display font-black leading-[0.85] tracking-tight mb-12 select-none">
+              <span className="block text-gradient-white text-[5rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[11rem]">SAVE</span>
+              <span className="block text-stroke text-[4.5rem] sm:text-[5.5rem] md:text-[7.5rem] lg:text-[9.5rem] xl:text-[10.5rem] opacity-70">ORGANIZE</span>
+              <span className="block text-gradient-purple text-[5rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[11rem]">SYNC</span>
             </h1>
 
             <motion.p
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-base sm:text-lg md:text-xl text-white/30 max-w-lg mx-auto mb-12 leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-white/40 max-w-2xl mx-auto mb-14 leading-relaxed font-light"
             >
               The modern platform for saving, organizing, and syncing your bookmarks. Built for people who value simplicity and speed.
             </motion.p>
