@@ -37,13 +37,13 @@ export default function Navbar() {
     return (
         <nav className="fixed top-0 left-0 right-0 z-50">
             <div className="glass border-b border-white/[0.04]">
-                <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+                <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
                     {/* Logo */}
                     <div className="flex items-center gap-3 cursor-pointer group">
-                        <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20">
-                            <Bookmark className="w-4 h-4 text-white" />
+                        <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-primary to-accent flex items-center justify-center shadow-lg shadow-primary/20">
+                            <Bookmark className="w-5 h-5 text-white" />
                         </div>
-                        <span className="font-display text-base font-bold tracking-tight text-white/90">
+                        <span className="font-display text-lg font-bold tracking-tight text-white/90">
                             Bookmark<span className="text-primary">App</span>
                         </span>
                     </div>

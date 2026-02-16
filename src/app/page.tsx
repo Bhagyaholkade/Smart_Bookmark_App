@@ -62,63 +62,134 @@ function LandingPage() {
   ]
 
   return (
-    <div className="pt-16 overflow-hidden">
+    <div className="pt-20 overflow-hidden">
       {/* HERO */}
-      <section className="relative min-h-[100vh] flex flex-col items-center justify-center px-6">
+      <section className="relative min-h-[90vh] flex flex-col items-center justify-center px-6 py-8">
         <div className="orb orb-1" />
         <div className="orb orb-2" />
         <div className="orb orb-3" />
 
-        <div className="relative z-10 max-w-6xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 40 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
-          >
+        <div className="relative z-10 max-w-7xl mx-auto w-full">
+          <div className="grid lg:grid-cols-[1fr_1.2fr] gap-12 items-center">
+            {/* Left Side - Text Content */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.5 }}
-              className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-full glass-light mb-12"
+              initial={{ opacity: 0, x: -40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, ease: [0.22, 1, 0.36, 1] }}
+              className="relative z-20"
             >
-              <div className="pulse-dot" />
-              <span className="text-xs font-bold text-white/60 tracking-widest uppercase">Real-time Bookmark Manager</span>
-            </motion.div>
-
-            <h1 className="font-display font-black leading-[0.85] tracking-tight mb-12 select-none">
-              <span className="block text-gradient-white text-[5rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[11rem]">SAVE</span>
-              <span className="block text-stroke text-[4.5rem] sm:text-[5.5rem] md:text-[7.5rem] lg:text-[9.5rem] xl:text-[10.5rem] opacity-70">ORGANIZE</span>
-              <span className="block text-gradient-purple text-[5rem] sm:text-[6rem] md:text-[8rem] lg:text-[10rem] xl:text-[11rem]">SYNC</span>
-            </h1>
-
-            <motion.p
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.4, duration: 0.8 }}
-              className="text-base sm:text-lg md:text-xl text-white/40 max-w-2xl mx-auto mb-14 leading-relaxed font-light"
-            >
-              The modern platform for saving, organizing, and syncing your bookmarks. Built for people who value simplicity and speed.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.6, duration: 0.6 }}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4"
-            >
-              <button
-                onClick={() => supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.origin } })}
-                className="btn-glow group"
+              <motion.div
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.2, duration: 0.5 }}
+                className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full glass-light mb-6"
               >
-                Get Started
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-            </motion.div>
-          </motion.div>
-        </div>
+                <div className="pulse-dot" />
+                <span className="text-xs font-bold text-primary tracking-widest uppercase">Best Choice</span>
+              </motion.div>
 
-        <div className="absolute bottom-0 left-0 right-0">
-          <div className="glow-line" />
+              <h1 className="font-display font-black leading-[1.1] mb-6 select-none">
+                <span className="block text-white text-[3rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5rem] xl:text-[5.5rem]">
+                  BOOKMARKS
+                </span>
+                <span className="block text-white text-[3rem] sm:text-[3.5rem] md:text-[4.5rem] lg:text-[5rem] xl:text-[5.5rem] -mt-3 sm:-mt-4">
+                  FOR ALL
+                </span>
+              </h1>
+
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.4, duration: 0.8 }}
+                className="text-base md:text-lg text-white/60 max-w-lg mb-6 leading-relaxed"
+              >
+                Regular saving allows you to better organize your own thoughts. Our <span className="text-primary font-semibold">team of professionals</span> will always help you make up your mind and find a bookmark for fun activities.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6, duration: 0.6 }}
+                className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
+              >
+                <button
+                  onClick={() => supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.origin } })}
+                  className="btn-glow group"
+                >
+                  Get Started
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+                <span className="text-sm text-white/40">Start organizing today</span>
+              </motion.div>
+            </motion.div>
+
+            {/* Right Side - Decorative Cards */}
+            <motion.div
+              initial={{ opacity: 0, x: 40 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
+              className="relative h-[450px] hidden lg:flex items-end justify-center pb-8"
+            >
+              <div className="relative w-full max-w-[550px] h-[400px]">
+                {/* Card 1 - Orange (Left) */}
+                <motion.div
+                  initial={{ rotate: 0, y: 80, opacity: 0 }}
+                  animate={{ rotate: -20, y: 0, opacity: 1 }}
+                  transition={{ delay: 0.5, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute bottom-0 left-[8%] w-[155px] h-[340px] rounded-[1.75rem] shadow-2xl overflow-hidden"
+                  style={{ 
+                    background: 'linear-gradient(135deg, #fb923c 0%, #f97316 100%)',
+                    transformOrigin: 'bottom center'
+                  }}
+                >
+                  <div className="absolute top-8 left-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                    <div className="w-5 h-5 rounded-full bg-white" />
+                  </div>
+                  <div className="absolute bottom-16 left-1/2 -translate-x-1/2 -rotate-90 origin-center">
+                    <span className="text-white font-black text-[1.35rem] tracking-[0.25em] whitespace-nowrap drop-shadow-lg">CLASSIC</span>
+                  </div>
+                </motion.div>
+
+                {/* Card 2 - Blue (Center) */}
+                <motion.div
+                  initial={{ rotate: 0, y: 80, opacity: 0 }}
+                  animate={{ rotate: -2, y: 0, opacity: 1 }}
+                  transition={{ delay: 0.6, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[155px] h-[360px] rounded-[1.75rem] shadow-2xl overflow-hidden z-10"
+                  style={{ 
+                    background: 'linear-gradient(135deg, #3b82f6 0%, #1e40af 100%)',
+                    transformOrigin: 'bottom center'
+                  }}
+                >
+                  <div className="absolute top-8 left-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                    <div className="w-5 h-5 rounded-full bg-white" />
+                  </div>
+                  <div className="absolute bottom-16 left-1/2 -translate-x-1/2 -rotate-90 origin-center">
+                    <span className="text-white font-black text-[1.35rem] tracking-[0.25em] whitespace-nowrap drop-shadow-lg">MODERN ART</span>
+                  </div>
+                </motion.div>
+
+                {/* Card 3 - Yellow (Right) */}
+                <motion.div
+                  initial={{ rotate: 0, y: 80, opacity: 0 }}
+                  animate={{ rotate: 25, y: 0, opacity: 1 }}
+                  transition={{ delay: 0.7, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                  className="absolute bottom-0 right-[8%] w-[155px] h-[340px] rounded-[1.75rem] shadow-2xl overflow-hidden"
+                  style={{ 
+                    background: 'linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%)',
+                    transformOrigin: 'bottom center'
+                  }}
+                >
+                  <div className="absolute top-8 left-1/2 -translate-x-1/2 w-11 h-11 rounded-full bg-white/25 backdrop-blur-sm flex items-center justify-center shadow-lg">
+                    <div className="w-5 h-5 rounded-full bg-white" />
+                  </div>
+                  <div className="absolute bottom-16 left-1/2 -translate-x-1/2 -rotate-90 origin-center">
+                    <span className="text-white font-black text-[1.35rem] tracking-[0.25em] whitespace-nowrap drop-shadow-lg">NONFICTION</span>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
+          </div>
         </div>
       </section>
 
