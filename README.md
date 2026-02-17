@@ -4,7 +4,7 @@ A real-time bookmark manager built with Next.js, Supabase, and Tailwind CSS. Fea
 
 ## Live Demo
 
-**Vercel URL**: [Coming soon]
+**Vercel URL**: https://smart-bookmark-app-three-bice.vercel.app
 
 ## Features
 
