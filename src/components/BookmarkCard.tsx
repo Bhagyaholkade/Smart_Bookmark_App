@@ -71,7 +71,7 @@ export default function BookmarkCard({ bookmark, onDelete }: BookmarkCardProps) 
                     <span className="text-[11px] font-semibold text-white/25 truncate tracking-wide uppercase">{hostname}</span>
                 </div>
 
-                <div className="flex gap-1.5 opacity-0 group-hover:opacity-100 transition-all duration-300 flex-shrink-0">
+                <div className="flex gap-1.5 sm:opacity-0 sm:group-hover:opacity-100 transition-all duration-300 flex-shrink-0">
                     <button
                         onClick={handleDelete}
                         disabled={deleting}
