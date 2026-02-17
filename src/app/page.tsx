@@ -18,6 +18,11 @@ export default function Home() {
   const [isModalOpen, setIsModalOpen] = useState(false)
 
   useEffect(() => {
+    // Clean up any hash fragments with tokens from the URL
+    if (window.location.hash && window.location.hash.includes('access_token')) {
+      window.history.replaceState(null, '', window.location.pathname)
+    }
+
     supabase.auth.getSession().then(({ data: { session } }) => {
       setUser(session?.user ?? null)
       setLoading(false)
@@ -25,6 +30,10 @@ export default function Home() {
 
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
       setUser(session?.user ?? null)
+      // Clean URL after auth state change
+      if (window.location.hash) {
+        window.history.replaceState(null, '', window.location.pathname)
+      }
     })
 
     return () => subscription.unsubscribe()
@@ -113,7 +122,7 @@ function LandingPage() {
                 className="flex flex-col sm:flex-row items-start sm:items-center gap-4"
               >
                 <button
-                  onClick={() => supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.origin } })}
+                  onClick={() => supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: `${window.location.origin}/auth/callback` } })}
                   className="btn-glow group"
                 >
                   Get Started
@@ -249,7 +258,7 @@ function LandingPage() {
               Sign in with your Google account and start saving your bookmarks in seconds.
             </p>
             <button
-              onClick={() => supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: window.location.origin } })}
+              onClick={() => supabase.auth.signInWithOAuth({ provider: 'google', options: { redirectTo: `${window.location.origin}/auth/callback` } })}
               className="btn-glow group"
             >
               Start for Free
