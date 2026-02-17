@@ -330,7 +330,7 @@ function Dashboard({ user, isModalOpen, setIsModalOpen }: {
             <div className="w-1 h-6 bg-gradient-to-b from-primary to-accent rounded-full" />
             <h2 className="font-display text-xl font-bold text-white/80">Collection</h2>
           </div>
-          <BookmarkList ref={bookmarkListRef} userId={user.id} onOpenModal={() => setIsModalOpen(true)} />
+          <BookmarkList ref={bookmarkListRef} userId={user.id} onOpenModal={() => setIsModalOpen(true)} onDelete={() => statsRef.current?.refresh()} />
         </div>
       </div>
 

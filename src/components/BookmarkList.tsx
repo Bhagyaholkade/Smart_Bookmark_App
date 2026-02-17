@@ -16,13 +16,14 @@ interface Bookmark {
 interface BookmarkListProps {
     userId: string
     onOpenModal?: () => void
+    onDelete?: () => void
 }
 
 export interface BookmarkListRef {
     addBookmark: (bookmark: Bookmark) => void
 }
 
-const BookmarkList = forwardRef<BookmarkListRef, BookmarkListProps>(function BookmarkList({ userId, onOpenModal }, ref) {
+const BookmarkList = forwardRef<BookmarkListRef, BookmarkListProps>(function BookmarkList({ userId, onOpenModal, onDelete: onDeleteCallback }, ref) {
     const [bookmarks, setBookmarks] = useState<Bookmark[]>([])
     const [loading, setLoading] = useState(true)
 
@@ -90,6 +91,7 @@ const BookmarkList = forwardRef<BookmarkListRef, BookmarkListProps>(function Boo
 
     const handleDelete = (id: string) => {
         setBookmarks((prev) => prev.filter((b) => b.id !== id))
+        onDeleteCallback?.()
     }
 
     if (loading) {
