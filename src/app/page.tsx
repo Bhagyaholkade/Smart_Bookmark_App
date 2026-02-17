@@ -112,7 +112,7 @@ function LandingPage() {
                 transition={{ delay: 0.4, duration: 0.8 }}
                 className="text-base md:text-lg text-white/60 max-w-lg mb-6 leading-relaxed"
               >
-                Regular saving allows you to better organize your own thoughts. Our <span className="text-primary font-semibold">team of professionals</span> will always help you make up your mind and find a bookmark for fun activities.
+                Save your favorite links in one place. Powered by <span className="text-primary font-semibold">Google OAuth</span> and <span className="text-primary font-semibold">real-time sync</span>, your bookmarks stay private and instantly updated across all your tabs.
               </motion.p>
 
               <motion.div
